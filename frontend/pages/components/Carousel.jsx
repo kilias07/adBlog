@@ -1,4 +1,3 @@
-import Image from "next/image";
 import SliderPost from "./SliderPost";
 
 const Carousel = ({slider}) => {

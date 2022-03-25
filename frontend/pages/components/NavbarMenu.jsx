@@ -35,8 +35,8 @@ const NavbarMenu = () => {
 
     const menuItems = [
         {
-            link: "/biografia",
-            title: "Biografia",
+            link: "/about",
+            title: "O mnie",
         },
         {
             link: "/portfolio",

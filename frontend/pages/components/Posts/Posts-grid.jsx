@@ -2,9 +2,14 @@ import PostItem from "./Post-item";
 
 const PostsGrid = ({posts}) => {
     return (
-        <div className="grid">
-            <PostItem />
-        </div>
+            <div className="flex justify-between">
+            {posts.map(post => (
+                <PostItem
+                key={post.sys.id}
+                post={post}
+                />
+            ))}
+            </div>
     );
 };
 

@@ -1,33 +1,34 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const PostItem = ({post}) => {
+    const {title, slug, description} = post.fields;
+    const featuredImage = post.fields.featuredImage[0].url;
 
-    // const linkPath = `/posts/${slug}`
+    console.log(featuredImage);
 
-    // const imagePath = `/assets/posts/${slug}/${image}`;
+
     return (
-        <h1>{post.fields.title}</h1>
-        // <li>
-        //     <Link href={linkPath}>
-        //         <a>
-        //             <div className="w-96">
-        //                 <Image
-        //                     layout="responsive"
-        //                     src={imagePath}
-        //                     alt={title}
-        //                     width={300}
-        //                     height={200}
-        //                 />
-        //             </div>
-        //             <div>
-        //                 <h3>{title}</h3>
-        //                 <time>{formattedDate}</time>
-        //                 <p>{excerpt}</p>
-        //             </div>
-        //         </a>
-        //     </Link>
-        // </li>
+        <div className="w-1/3">
+            <div className="flex justify-center">
+                <Image
+                    className="mx-auto"
+                    objectFit="cover"
+                    src={featuredImage}
+                    width={400}
+                    height={400}
+                />
+                <div>
+                    <h3>
+                        {post.fields.title}
+                    </h3>
+                    <Link href={`/blog/${slug}`}>
+                        <a>Poczytaj wincej</a>
+                    </Link>
+                </div>
+            </div>
+
+        </div>
     );
 };
 
