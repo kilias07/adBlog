@@ -1,4 +1,4 @@
-import AllPosts from "../components/Posts/All-posts";
+import AllPosts from "../../components/Posts/All-posts";
 import {createClient} from "contentful";
 
 export async function getStaticProps() {

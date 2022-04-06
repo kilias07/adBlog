@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Kontakt = () => {
+const Contact = () => {
     return (
         <div className="text-xl text-center">
             To jest kontakts daspijfd ks
@@ -8,4 +8,4 @@ const Kontakt = () => {
     );
 };
 
-export default Kontakt;
+export default Contact;
