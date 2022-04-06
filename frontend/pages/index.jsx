@@ -1,6 +1,7 @@
 import {createClient} from "contentful";
 import Carousel from "./components/Carousel";
 import FeaturedPosts from "./components/Posts/FeaturedPosts";
+import AllPosts from "./components/Posts/All-posts";
 
 
 export async function getStaticProps() {

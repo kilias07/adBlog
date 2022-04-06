@@ -3,6 +3,7 @@ import PostsGrid from "./Posts-grid";
 
 
 const FeaturedPosts = ({posts}) => {
+    const filteredPosts = posts.filter(post => post.fields.featuredPosts);
 
     return (
         <div className="max-w-screen-3xl mx-auto">
@@ -11,7 +12,7 @@ const FeaturedPosts = ({posts}) => {
                     <a className="text-3xl uppercase tracking-widest hover:opacity-75 cursor-pointer">Blog</a>
                 </Link>
             </div>
-            <PostsGrid posts={posts}/>
+            <PostsGrid posts={filteredPosts}/>
         </div>
     );
 };

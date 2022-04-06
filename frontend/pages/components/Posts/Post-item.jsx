@@ -5,13 +5,13 @@ const PostItem = ({post}) => {
     const {title, slug, description} = post.fields;
     const featuredImage = post.fields.featuredImage[0].url;
 
-    console.log(featuredImage);
 
 
     return (
         <div className="w-1/3">
             <div className="flex justify-center">
                 <Image
+                    alt={description}
                     className="mx-auto"
                     objectFit="cover"
                     src={featuredImage}
@@ -20,7 +20,7 @@ const PostItem = ({post}) => {
                 />
                 <div>
                     <h3>
-                        {post.fields.title}
+                        {title}
                     </h3>
                     <Link href={`/blog/${slug}`}>
                         <a>Poczytaj wincej</a>

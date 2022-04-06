@@ -1,4 +1,5 @@
 import {createClient} from "contentful";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -31,11 +32,17 @@ export async function getStaticProps({params}) {
     }
 }
 
+
 const MyComponent = ({post}) => {
-    console.log(post);
+    const {title, featuredImage, description, postGallery, postText} = post.fields;
+
     return (
         <div>
-            test
+            <div>
+                <h1>{title}</h1>
+                <h2>Opis</h2>
+                <div>{documentToReactComponents(postText)}</div>
+            </div>
         </div>
     );
 };

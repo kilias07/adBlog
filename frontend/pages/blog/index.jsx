@@ -1,12 +1,30 @@
 import AllPosts from "../components/Posts/All-posts";
-import FeaturedPosts from "../components/Posts/FeaturedPosts";
+import {createClient} from "contentful";
 
+export async function getStaticProps() {
+    const client = createClient({
+        space: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+    });
 
+    const resPosts = await client.getEntries({
+        content_type: "posts"
+    })
+
+    return {
+        props: {
+            posts: resPosts.items,
+        }
+    }
+}
 
 const Blog = ({posts}) => {
-    console.log(posts);
+
+
     return (
-        <FeaturedPosts />
+        <>
+            <AllPosts posts={posts}/>
+        </>
     )
 }
 
