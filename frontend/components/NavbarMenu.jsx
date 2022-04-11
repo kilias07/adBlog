@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {useState, useRef, useEffect} from "react";
-import {GiHamburgerMenu} from "react-icons/gi";
+import {IoMenuOutline, IoCloseOutline} from "react-icons/io5";
 
 const NavbarMenu = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -8,7 +8,7 @@ const NavbarMenu = () => {
 
     useOnClickOutside(ref, () => setModalOpen(false));
 
-    function closeHamburger() {
+    function openCloseHamburger() {
         setModalOpen(prev => !prev);
     }
 
@@ -47,47 +47,47 @@ const NavbarMenu = () => {
             title: "Blog",
         },
         {
-            link: "/kontakt",
+            link: "/mail",
             title: "Kontakt",
         },
     ];
     return (
-            <nav ref={ref} className="flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100"
-                 >
-                <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-                    <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-                        <Link href="/">
-                            <a
-                                className="text-lg rounded-lg border-black font-normal tracking-widest inline-block mr-4 py-1 px-4 border-2">
-                                Andrzej Dromert
-                            </a>
-                        </Link>
-                        <button
-                            className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                            type="button"
-                            onClick={closeHamburger}
-                        >
-                            <GiHamburgerMenu/>
-                        </button>
-                    </div>
-                    <div className={"lg:flex flex-grow items-center" + (isModalOpen ? " flex" : " hidden")}>
-                        <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-                            {menuItems.map((item,index) => (
-                                <li
-                                    key={index}
-                                    className="nav-item">
-                                    <Link href={item.link}>
-                                        <a
-                                            onClick={closeHamburger}
-                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75">{item.title}
-                                        </a>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+        <nav ref={ref} className="flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100"
+        >
+            <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+                <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+                    <Link href="/">
+                        <a
+                            className="text-lg rounded-lg border-black font-normal tracking-widest inline-block mr-4 py-1 px-4 border-2">
+                            Andrzej Dromert
+                        </a>
+                    </Link>
+                    <button
+                        className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                        type="button"
+                        onClick={openCloseHamburger}
+                    >
+                        {isModalOpen ? <IoCloseOutline/> : <IoMenuOutline /> }
+                    </button>
                 </div>
-            </nav>
+                <div className={"lg:flex flex-grow items-center" + (isModalOpen ? " flex" : " hidden")}>
+                    <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+                        {menuItems.map((item,index) => (
+                            <li
+                                key={index}
+                                className="nav-item">
+                                <Link href={item.link}>
+                                    <a
+                                        onClick={openCloseHamburger}
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75">{item.title}
+                                    </a>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </nav>
     )
 }
 
