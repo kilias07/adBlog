@@ -1,5 +1,7 @@
 import {createClient} from "contentful";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import {Skeleton} from "../../components/Skeleton";
+import {redirect} from "next/dist/server/api-utils";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -14,10 +16,11 @@ export const getStaticPaths = async() => {
         return {
             params: {slug: item.fields.slug}
         }
-    })
+    });
+
     return {
         paths,
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -27,6 +30,15 @@ export async function getStaticProps({params}) {
         'fields.slug': params.slug,
     });
 
+    if(!items.length) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+
     return{
         props: {post: items[0]},
         revalidate: 30,
@@ -35,8 +47,10 @@ export async function getStaticProps({params}) {
 
 
 const MyComponent = ({post}) => {
+    if (!post) return <Skeleton />
+
     const {title, featuredImage, description, postGallery, postText} = post.fields;
-    console.log(documentToReactComponents(postText))
+
     return (
         <div>
             <div>
