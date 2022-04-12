@@ -4,7 +4,7 @@ const Carousel = ({slider}) => {
 
 
     return (
-        <div id="carouselExampleCaptions" className="carousel slide relative max-w-screen-3xl mx-auto"
+        <div id="carouselExampleCaptions" className="carousel relative slide max-w-screen-3xl mx-auto"
              data-bs-ride="carousel">
             <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                 {slider.map((item, i) => (
@@ -13,7 +13,6 @@ const Carousel = ({slider}) => {
                         type="button"
                         data-bs-target="#carouselExampleCaptions"
                         data-bs-slide-to={`${i}`}
-                        aria-current="true"
                         aria-label={`Slide ${i+1}`}
                         className={`${i === 0 && 'active'}`}
                     />

@@ -47,12 +47,12 @@ const NavbarMenu = () => {
             title: "Blog",
         },
         {
-            link: "/mail",
+            link: "/contact",
             title: "Kontakt",
         },
     ];
     return (
-        <nav ref={ref} className="flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100"
+        <nav ref={ref}  className="absolute flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100 z-10 w-full"
         >
             <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">

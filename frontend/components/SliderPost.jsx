@@ -14,6 +14,7 @@ const SliderPost = ({slider}) => {
                     layout="responsive"
                     alt={item.fields.description}
                     objectFit="cover"
+                    priority="true"
                 />
                 <div className="carousel-caption hidden md:block absolute text-center">
                     <h5 className="text-xl">{item.fields.title}</h5>

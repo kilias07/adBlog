@@ -30,8 +30,8 @@ function MyApp({Component, pageProps}) {
                 strategy="afterInteractive"
                 src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
             />
-            {/* eslint-disable-next-line @next/next/inline-script-id */}
             <Script
+                id="gTag"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -44,6 +44,7 @@ function MyApp({Component, pageProps}) {
           `,
                 }}
             />
+
             <Layout>
             <Component {...pageProps} />
             </Layout>

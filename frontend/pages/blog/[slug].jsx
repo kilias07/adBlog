@@ -36,11 +36,11 @@ export async function getStaticProps({params}) {
 
 const MyComponent = ({post}) => {
     const {title, featuredImage, description, postGallery, postText} = post.fields;
-
+    console.log(documentToReactComponents(postText))
     return (
         <div>
             <div>
-                <h1>{title}</h1>
+                <h1 className="pt-28">{title}</h1>
                 <h2>Opis</h2>
                 <div>{documentToReactComponents(postText)}</div>
             </div>
