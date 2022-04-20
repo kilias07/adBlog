@@ -5,7 +5,11 @@ module.exports = {
     './src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
+    fontFamily: {
+      lato: "'Lato', serif",
+    }
   },
   plugins: [
     require('tw-elements/dist/plugin')

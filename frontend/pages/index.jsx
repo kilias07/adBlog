@@ -1,6 +1,6 @@
 import {createClient} from "contentful";
 import Carousel from "../components/Carousel";
-import FeaturedPosts from "../components/Posts/FeaturedPosts";
+import {GridSection} from "../components/gridPosts/GridSection";
 
 
 export async function getStaticProps() {
@@ -29,7 +29,7 @@ const Home = ({posts, slider}) => {
     return (
         <>
             <Carousel slider={slider}/>
-            <FeaturedPosts posts={posts}/>
+            <GridSection posts={posts}/>
         </>
     )
 }

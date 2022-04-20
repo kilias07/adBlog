@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
 
 .max-w-screen-3xl {
@@ -9,4 +10,12 @@
 
 .shadow-bottom {
   box-shadow: 0 5px 5px -5px #333;
+}
+
+.content-inside {
+  min-height: calc(100vh - 64px - 210px - 128px);
+}
+
+.active-button {
+  background-color: var(--bs-gray-500);
 }
